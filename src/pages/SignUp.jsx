@@ -19,13 +19,16 @@ export default function SignUp() {
     try {
       e.preventDefault();
       setLoading(true);
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/signup`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       // basically fetch method req bej ra hai  per server se jo response ara hai wo us ko return ker ra hai is liay hum ne const res = await fetch() lagaya hai na ke const req = await fetch()
       const data = await res.json();
       if (data.success === false) {
