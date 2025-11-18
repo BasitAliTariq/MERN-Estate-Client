@@ -26,13 +26,16 @@ export default function SignIn() {
     try {
       e.preventDefault();
       dispatch(signInStart());
-      const res = await fetch("/api/auth/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://mern-estate-server-ten.vercel.app/api/auth/signin",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       // basically fetch method req bej ra hai per server se jo response ara hai wo us ko return ker ra hai is liay hum ne const res = await fetch() lagaya hai na ke const req = await fetch()
       const data = await res.json();
       if (data.success === false) {
