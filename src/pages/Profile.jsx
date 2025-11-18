@@ -120,7 +120,7 @@ export default function Profile() {
     try {
       dispatch(SignOutStart());
       const res = await fetch(
-        "${import.meta.env.VITE_BACKEND_URL}/api/auth/signOut"
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/signOut`
       );
       const data = await res.json();
       if (data.success === false) {
@@ -138,7 +138,7 @@ export default function Profile() {
     try {
       setShowListingsError(false);
       const res = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}api/user/listings/${
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/listings/${
           currentUser._id
         }`
       );
