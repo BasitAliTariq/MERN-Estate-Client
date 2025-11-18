@@ -19,7 +19,11 @@ export default function Home() {
         const res = await fetch(
           `${
             import.meta.env.VITE_BACKEND_URL
-          }/api/listing/get?offer=true&limit=4`
+          }/api/listing/get?offer=true&limit=4`,
+          {
+            method: "GET",
+            credentials: "include",
+          }
         );
         const data = await res.json();
         setOfferListings(data);
@@ -32,7 +36,10 @@ export default function Home() {
         const res = await fetch(
           `${
             import.meta.env.VITE_BACKEND_URL
-          }/api/listing/get?type=rent&limit=4`
+          }/api/listing/get?type=rent&limit=4`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
         setRentListings(data);
@@ -45,7 +52,10 @@ export default function Home() {
         const res = await fetch(
           `${
             import.meta.env.VITE_BACKEND_URL
-          }/api/listing/get?type=sale&limit=4`
+          }/api/listing/get?type=sale&limit=4`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
         setSaleListings(data);

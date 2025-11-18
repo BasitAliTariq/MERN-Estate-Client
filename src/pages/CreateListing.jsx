@@ -139,6 +139,7 @@ export default function CreateListing() {
         `${import.meta.env.VITE_BACKEND_URL}/api/listing/create`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },

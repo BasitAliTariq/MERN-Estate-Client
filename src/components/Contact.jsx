@@ -9,7 +9,10 @@ function Contact({ listing }) {
     const fetchLandlord = async () => {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/api/user/${listing.userRef}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/user/${listing.userRef}`,
+          {
+            credentials: "include",
+          }
         );
         const data = await res.json();
         setLandlord(data);

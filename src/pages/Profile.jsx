@@ -78,6 +78,7 @@ export default function Profile() {
         }`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -104,6 +105,7 @@ export default function Profile() {
         }`,
         {
           method: "DELETE",
+          credentials: "include",
         }
       );
       const data = await res.json();
@@ -120,7 +122,10 @@ export default function Profile() {
     try {
       dispatch(SignOutStart());
       const res = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/auth/signOut`
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/signOut`,
+        {
+          credentials: "include",
+        }
       );
       const data = await res.json();
       if (data.success === false) {
@@ -140,7 +145,10 @@ export default function Profile() {
       const res = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/user/listings/${
           currentUser._id
-        }`
+        }`,
+        {
+          credentials: "include",
+        }
       );
       const data = await res.json();
       if (data.success === false) {
@@ -160,6 +168,7 @@ export default function Profile() {
         `${import.meta.env.VITE_BACKEND_URL}/api/listing/delete/${listingId}`,
         {
           method: "DELETE",
+          credentials: "include",
         }
       );
       const data = await res.json();
