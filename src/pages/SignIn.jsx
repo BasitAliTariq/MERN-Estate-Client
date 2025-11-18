@@ -30,6 +30,7 @@ export default function SignIn() {
         `${import.meta.env.VITE_BACKEND_URL}/api/auth/signin`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },

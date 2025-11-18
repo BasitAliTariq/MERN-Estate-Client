@@ -23,6 +23,7 @@ export default function SignUp() {
         `${import.meta.env.VITE_BACKEND_URL}/api/auth/signup`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
